@@ -33,7 +33,7 @@ public class StudentDetail extends AppCompatActivity {
 
         ID=it.getIntExtra("id", -1);
         //Toast.makeText(this, "ID="+ID, Toast.LENGTH_SHORT).show();
-        stu = MainActivity.t.getOneStudent(ID);
+        //stu = MainActivity.t.getOneStudent(ID);
         identity.setText(""+stu.id);
         name.setText(stu.name);
         phone.setText(stu.tel);

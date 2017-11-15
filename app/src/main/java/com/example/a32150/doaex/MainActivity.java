@@ -31,7 +31,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements RecyclerView.OnItemTouchListener {
 
-    public static StudentDAOMemoryImpl t = new StudentDAOMemoryImpl();
+    //public static StudentDAOMemoryImpl t = new StudentDAOMemoryImpl();
+    public static StudentDAOFileImpl t;
     ListView lv;
     ArrayList<Map<String, Object>> mylist;
     Intent it;
@@ -45,12 +46,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        t = new StudentDAOFileImpl(MainActivity.this);
         rv=(RecyclerView)findViewById(R.id.recyclerView);
         rv.setHasFixedSize(false);
         mLayoutManager = new LinearLayoutManager(MainActivity.this);
         rv.setLayoutManager(mLayoutManager);
-        t.add(new Student("Jimmy", "66666", "handsome"));
-        t.add(new Student("Jim", "999", "long"));
+        //t.add(new Student("Jimmy", "66666", "handsome"));
+        //t.add(new Student("Jim", "999", "long"));
 
         mGD = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override

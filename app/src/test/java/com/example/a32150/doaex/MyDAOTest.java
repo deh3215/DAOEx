@@ -85,7 +85,7 @@ public class MyDAOTest {
         dao.add(new Student("A2", "155wwww11", "weweewe"));
         dao.add(new Student("A3", "2444111", "wewerwerwerewe"));
 
-        Student s = dao.getOneStudent(2);
+        Student s = dao.getOneStudent(3);
 
         assertEquals(s.addr, "wewerwerwerewe");
     }
@@ -101,8 +101,8 @@ public class MyDAOTest {
         dao.add(new Student("CC", "66", "aabb"));
         Student s[] = dao.searchBYName("CC");
 
-        System.out.println(s[0].name);
-        System.out.println(s[1].name);
+        //System.out.println(s[0].name);
+        //System.out.println(s[1].name);
         assertEquals(s.length, 2);
     }
 }
