@@ -81,7 +81,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
                 Intent it = new Intent(MainActivity.this, StudentDetail.class);
                 it.putExtra("id", t.getData()[position].id);
                 startActivity(it);
+                //Toast.makeText(MainActivity.this, ""+t.getData()[position].id, Toast.LENGTH_LONG).show();
             }
+           // Toast.makeText(MainActivity.this, ""+(position+1), Toast.LENGTH_LONG).show();
         }
 
         return false;

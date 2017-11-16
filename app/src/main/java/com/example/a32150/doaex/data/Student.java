@@ -12,7 +12,7 @@ public class Student {
 
 
     public Student(String name, String tel, String addr)    {
-        this.name = name;
+        this.name=name;
         this.tel=tel;
         this.addr=addr;
     }

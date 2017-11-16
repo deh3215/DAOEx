@@ -1,6 +1,7 @@
 package com.example.a32150.doaex;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.a32150.doaex.data.Student;
 import com.example.a32150.doaex.data.StudentDAO;
@@ -20,10 +21,11 @@ import java.util.ArrayList;
  * Created by 32150 on 2017/11/15.
  */
 
-public class StudentDAOFileImpl  implements StudentDAO {
+public class StudentDAOFileImpl implements StudentDAO {
     ArrayList<Student> data = new ArrayList();
     Context context;
     String DATA_FILE;
+    static int MaxID=1;
 
     public StudentDAOFileImpl(Context context) {//這樣才能帶進上一個activity,使用context.getFilesDir(),否則無法使用
 
@@ -59,18 +61,20 @@ public class StudentDAOFileImpl  implements StudentDAO {
                 Gson gson = new Gson();
                 Type listType = new TypeToken<ArrayList<Student>>() {}.getType();
                 data = gson.fromJson(str, listType);
+                Log.d("Data", data.toString());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public void add(Student s) {
+        s.id = MaxID;
         data.add(s);
+        MaxID++;
         saveData();
     }
 
@@ -97,6 +101,13 @@ public class StudentDAOFileImpl  implements StudentDAO {
 
     @Override
     public Student getOneStudent(int id) {
+        for (Student tmp : data)
+        {
+            if (tmp.id == id)
+            {
+                return tmp;
+            }
+        }
         return null;
     }
 

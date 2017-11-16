@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ public class StudentDetail extends AppCompatActivity {
 
     TextView identity, name, phone, addr;
     Student stu;
-    int ID;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +31,18 @@ public class StudentDetail extends AppCompatActivity {
         addr = (TextView)findViewById(R.id.addr);
 
         Intent it=getIntent();
-
-        ID=it.getIntExtra("id", -1);
-        //Toast.makeText(this, "ID="+ID, Toast.LENGTH_SHORT).show();
-        //stu = MainActivity.t.getOneStudent(ID);
-        identity.setText(""+stu.id);
-        name.setText(stu.name);
-        phone.setText(stu.tel);
-        addr.setText(stu.addr);
-
-        //identity.setText("你的id是:"+ID);
+        id=it.getIntExtra("id", -1);
+        showData();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        stu = MainActivity.t.getOneStudent(ID);
+        showData();
+    }
+
+    void showData() {
+        stu = MainActivity.t.getOneStudent(id);
         identity.setText(String.valueOf(stu.id));
         name.setText(stu.name);
         phone.setText(stu.tel);
@@ -69,7 +66,6 @@ public class StudentDetail extends AppCompatActivity {
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
             }
         });
         builder.show();
@@ -77,7 +73,7 @@ public class StudentDetail extends AppCompatActivity {
 
     public void ClickUpdate(View v) {
         Intent it = new Intent(StudentDetail.this, StudentUpdate.class);
-        it.putExtra("id", ID);
+        it.putExtra("id", id);
         startActivity(it);
     }
 }
