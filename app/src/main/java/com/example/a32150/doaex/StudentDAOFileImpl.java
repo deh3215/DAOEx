@@ -90,7 +90,15 @@ public class StudentDAOFileImpl implements StudentDAO {
 
     @Override
     public void delete(Student s) {
-
+        for (int i=data.size()-1;i>=0;i--)
+        {
+            if (data.get(i).id == s.id)
+            {
+                data.remove(i);
+                break;
+            }
+        }
+        saveData();
     }
 
     @Override
@@ -112,7 +120,15 @@ public class StudentDAOFileImpl implements StudentDAO {
     }
 
     @Override
-    public Student[] searchBYName(String name) {
-        return new Student[0];
+    public Student[] searchByName(String name) {
+        ArrayList<Student> tmpList = new ArrayList<>();
+        for (Student tmp : data)
+        {
+            if (tmp.name.equals(name))
+            {
+                tmpList.add(tmp);
+            }
+        }
+        return tmpList.toArray(new Student[tmpList.size()]);
     }
 }

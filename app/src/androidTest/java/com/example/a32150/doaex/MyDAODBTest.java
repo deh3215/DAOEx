@@ -1,10 +1,15 @@
 package com.example.a32150.doaex;
 
+/**
+ * Created by deh3215 on 2017/11/20.
+ */
+
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.example.a32150.doaex.data.Student;
+import com.example.a32150.doaex.data.StudentDAODBImpl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,28 +17,29 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by 32150 on 2017/11/15.
+ * Created by yvtc on 2017/11/20.
  */
 @RunWith(AndroidJUnit4.class)
-public class MyDAOFileTest {
+public class MyDAODBTest {
     @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-        StudentDAOFileImpl dao = new StudentDAOFileImpl(appContext);
+        StudentDAODBImpl dao = new StudentDAODBImpl(appContext);
         dao.clear();
         dao.add(new Student("AA", "11", "aabb"));
         dao.clear();
-        dao.add(new Student("Jimmy", "66666", "handsome"));
-        dao.add(new Student("Jim", "999", "long"));
+        dao.add(new Student("BB", "22", "aabb"));
+        dao.add(new Student("CC", "33", "aabb"));
         Student[] stus = dao.getData();
         assertEquals(stus.length, 2);
+
     }
     @Test
     public void TestUpdate1() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-        StudentDAOFileImpl dao = new StudentDAOFileImpl(appContext);
+        StudentDAODBImpl dao = new StudentDAODBImpl(appContext);
         dao.clear();
         dao.add(new Student("AA", "11", "aabb"));
         dao.add(new Student("BB", "22", "aabb"));
@@ -50,7 +56,7 @@ public class MyDAOFileTest {
     public void TestDelete1() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-        StudentDAOFileImpl dao = new StudentDAOFileImpl(appContext);
+        StudentDAODBImpl dao = new StudentDAODBImpl(appContext);
         dao.clear();
         dao.add(new Student("AA", "11", "aabb"));
         dao.add(new Student("BB", "22", "aabb"));
@@ -65,7 +71,7 @@ public class MyDAOFileTest {
     public void TestGetOne1() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-        StudentDAOFileImpl dao = new StudentDAOFileImpl(appContext);
+        StudentDAODBImpl dao = new StudentDAODBImpl(appContext);
         dao.clear();
         dao.add(new Student("AA", "11", "aabb"));
         dao.add(new Student("BB", "22", "aabb"));
@@ -74,4 +80,18 @@ public class MyDAOFileTest {
         Student s = dao.getOneStudent(check[1].id);
         assertEquals(s.name, "BB");
     }
+    @Test
+    public void TestSearchByName() throws Exception {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        StudentDAODBImpl dao = new StudentDAODBImpl(appContext);
+        dao.clear();
+        dao.add(new Student("AA", "11", "aabb"));
+        dao.add(new Student("BB", "22", "aabb"));
+        dao.add(new Student("CC", "33", "aabb"));
+        Student[] check = dao.getData();
+        Student[] s = dao.searchByName("AA");
+        assertEquals(s[0].tel, "11");
+    }
 }
+

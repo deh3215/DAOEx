@@ -8,8 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.telecom.Call;
 import android.util.Log;
 
+import com.example.a32150.doaex.data.DAOType;
 import com.example.a32150.doaex.data.MyAdapter;
 import com.example.a32150.doaex.data.Student;
+import com.example.a32150.doaex.data.StudentDAO;
+import com.example.a32150.doaex.data.StudentDAOFactory;
 import com.example.a32150.doaex.data.StudentDAOMemoryImpl;
 import com.example.a32150.doaex.data.StudentDAOTest1;
 import com.example.a32150.doaex.data.StudentDetail;
@@ -32,7 +35,12 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements RecyclerView.OnItemTouchListener {
 
     //public static StudentDAOMemoryImpl t = new StudentDAOMemoryImpl();
-    public static StudentDAOFileImpl t;
+    //public static StudentDAOFileImpl t;
+
+    public static StudentDAO t;//宣告介面物件
+
+    final DAOType type = DAOType.DB;
+
     ListView lv;
     ArrayList<Map<String, Object>> mylist;
     Intent it;
@@ -46,7 +54,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        t = new StudentDAOFileImpl(MainActivity.this);
+        //t = new StudentDAOFileImpl(MainActivity.this);
+        t = StudentDAOFactory.getStudentDAO(type, this);//file mode
+
         rv=(RecyclerView)findViewById(R.id.recyclerView);
         rv.setHasFixedSize(false);
         mLayoutManager = new LinearLayoutManager(MainActivity.this);

@@ -63,7 +63,7 @@ public class StudentDAOMemoryImpl implements StudentDAO {
     }
 
     @Override
-    public Student[] searchBYName(String name) {
+    public Student[] searchByName(String name) {
         ArrayList<Student> tmpList = new ArrayList<>();
         for(Student tmp : data)  {
             if(tmp.name.equals(name))

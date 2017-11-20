@@ -32,6 +32,7 @@ public class StudentDetail extends AppCompatActivity {
 
         Intent it=getIntent();
         id=it.getIntExtra("id", -1);
+        //Toast.makeText(StudentDetail.this, "id="+id,Toast.LENGTH_SHORT).show();
         showData();
     }
 

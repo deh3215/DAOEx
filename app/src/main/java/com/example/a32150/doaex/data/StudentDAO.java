@@ -12,6 +12,6 @@ public interface StudentDAO {
     void delete(Student s);
     void clear();
     Student getOneStudent(int id);
-    Student[] searchBYName(String name);
+    Student[] searchByName(String name);
 
 }
