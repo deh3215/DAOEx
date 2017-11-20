@@ -26,12 +26,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
+
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
-        holder.tv.setText(data[position].name+", "+data[position].tel+", "+data[position].addr);
+        holder.tv.setText(data[position].id+","+data[position].name+", "+data[position].tel+", "+data[position].addr);
     }
 
     @Override
