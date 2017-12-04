@@ -1,6 +1,7 @@
 package com.example.a32150.doaex.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.a32150.doaex.StudentDAOFileImpl;
 
@@ -18,6 +19,8 @@ public class StudentDAOFactory {
                 return new StudentDAOFileImpl(context);
             case DB:
                 return new StudentDAODBImpl(context);
+            case CLOUD:
+                return new StudentDAOCloudImpl(context);
         }
         return null;
     }

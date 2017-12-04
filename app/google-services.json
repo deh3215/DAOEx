@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "493131845650",
+    "firebase_url": "https://doaex-cb699.firebaseio.com",
+    "project_id": "doaex-cb699",
+    "storage_bucket": "doaex-cb699.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493131845650:android:8aee3011ed614fb0",
+        "android_client_info": {
+          "package_name": "com.example.a32150.doaex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493131845650-59d9ei3706av1hmodtubf4r61nster1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.a32150.doaex",
+            "certificate_hash": "f5463fbe5f13fa774e229e92be4f8712f5d92d71"
+          }
+        },
+        {
+          "client_id": "493131845650-fbqj45f193id0kdc3nci40gg3rr8fnp4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcJvKJ23eY3QYH7cmdbY7vpJgB3JZpauQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493131845650-fbqj45f193id0kdc3nci40gg3rr8fnp4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -32,14 +32,22 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements RecyclerView.OnItemTouchListener {
+public class MainActivity extends AppCompatActivity implements RecyclerView.OnItemTouchListener, OnCloudReceivedListener {
 
     //public static StudentDAOMemoryImpl t = new StudentDAOMemoryImpl();
     //public static StudentDAOFileImpl t;
 
+    @Override
+    public void onReceivedEvent() {
+        mAdapter = new MyAdapter(MainActivity.this, t.getData());
+        rv.setAdapter(mAdapter);
+    }
+
     public static StudentDAO t;//宣告介面物件
 
-    final DAOType type = DAOType.DB;
+    //final DAOType type = DAOType.DB;
+    final DAOType type = DAOType.CLOUD;//使用Cloud DB, FireBase
+
 
     ListView lv;
     ArrayList<Map<String, Object>> mylist;

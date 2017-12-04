@@ -5,6 +5,6 @@ package com.example.a32150.doaex.data;
  */
 
 public enum DAOType {
-    MEMORY, FILE, DB
+    MEMORY, FILE, DB, CLOUD
 
 }

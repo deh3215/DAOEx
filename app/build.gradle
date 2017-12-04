@@ -20,6 +20,8 @@ android {
 }
 
 dependencies {
+
+    implementation 'com.google.firebase:firebase-database:11.0.4'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -30,3 +32,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.google.code.gson:gson:2.8.2'
 }
+
+
+
+apply plugin: 'com.google.gms.google-services'
