@@ -23,4 +23,11 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.example.a32150.doaex", appContext.getPackageName());
     }
+
+
+
+
+
+
+
 }
