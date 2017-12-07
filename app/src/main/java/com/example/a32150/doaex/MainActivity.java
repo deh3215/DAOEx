@@ -5,16 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.telecom.Call;
 import android.util.Log;
 
 import com.example.a32150.doaex.data.DAOType;
-import com.example.a32150.doaex.data.MyAdapter;
-import com.example.a32150.doaex.data.Student;
+import com.example.a32150.doaex.data.OnCloudReceivedListener;
 import com.example.a32150.doaex.data.StudentDAO;
 import com.example.a32150.doaex.data.StudentDAOFactory;
-import com.example.a32150.doaex.data.StudentDAOMemoryImpl;
-import com.example.a32150.doaex.data.StudentDAOTest1;
 import com.example.a32150.doaex.data.StudentDetail;
 
 import android.view.GestureDetector;
@@ -23,10 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,12 +29,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
 
     //public static StudentDAOMemoryImpl t = new StudentDAOMemoryImpl();
     //public static StudentDAOFileImpl t;
-
-    @Override
-    public void onReceivedEvent() {
-        mAdapter = new MyAdapter(MainActivity.this, t.getData());
-        rv.setAdapter(mAdapter);
-    }
 
     public static StudentDAO t;//宣告介面物件
 
@@ -155,4 +142,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         return true;
     }
 
+    @Override
+    public void onReceivedEvent() {
+        Log.d("DATA","觀察者模式");
+        mAdapter = new MyAdapter(MainActivity.this, t.getData());
+        rv.setAdapter(mAdapter);
+    }
 }

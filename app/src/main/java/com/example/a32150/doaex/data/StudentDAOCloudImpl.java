@@ -26,7 +26,7 @@ public class StudentDAOCloudImpl implements StudentDAO {
     DatabaseReference myRef;
     final String TAG = "CloudImpl";
     int MaxID;
-    public StudentDAOCloudImpl(Context context)
+    public StudentDAOCloudImpl(final Context context)
     {
         this.context = context;
         database = FirebaseDatabase.getInstance();
@@ -65,6 +65,7 @@ public class StudentDAOCloudImpl implements StudentDAO {
 
                 MaxID += 1;
                 Log.d(TAG, "Value is: " + value);
+                ((OnCloudReceivedListener) context).onReceivedEvent();
             }
 
             @Override
@@ -151,6 +152,12 @@ public class StudentDAOCloudImpl implements StudentDAO {
 
     @Override
     public Student[] searchByName(String name) {
-        return new Student[0];
+        ArrayList<Student> tmpList = new ArrayList<>();
+        for(Student tmp : data)  {
+            if(tmp.name.equals(name))
+                tmpList.add(tmp);
+        }
+
+        return tmpList.toArray(new Student[tmpList.size()]);
     }
 }

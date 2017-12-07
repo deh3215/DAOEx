@@ -1,4 +1,4 @@
-package com.example.a32150.doaex.data;
+package com.example.a32150.doaex;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.a32150.doaex.R;
+import com.example.a32150.doaex.data.Student;
 
 /**
  * Created by 32150 on 2017/11/13.
